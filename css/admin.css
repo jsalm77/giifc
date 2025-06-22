@@ -1,0 +1,39 @@
+/* Admin Page Styles */
+body {
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-container {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 800px;
+    width: 90%;
+    color: white;
+}
+
+.admin-container h1 {
+    color: #e94560;
+    margin-bottom: 30px;
+}
+
+.admin-container button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e94560;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+

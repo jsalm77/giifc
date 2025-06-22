@@ -1,0 +1,649 @@
+/* Player Page Styles */
+body {
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+}
+
+.player-header {
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.9), rgba(255, 107, 107, 0.8));
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(233, 69, 96, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.player-header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: white;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.player-header button {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(238, 90, 82, 0.4);
+}
+
+.player-header button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(238, 90, 82, 0.6);
+}
+
+.player-nav {
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    padding: 15px 0;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.player-nav-item {
+    flex: 1;
+    text-align: center;
+    padding: 12px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    margin: 0 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.player-nav-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(233, 69, 96, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.player-nav-item:hover::before {
+    left: 100%;
+}
+
+.player-nav-item:hover, .player-nav-item.active {
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.3), rgba(255, 107, 107, 0.2));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
+}
+
+.player-nav-item i {
+    font-size: 1.8em;
+    margin-bottom: 8px;
+    color: #e94560;
+    transition: all 0.3s ease;
+}
+
+.player-nav-item:hover i, .player-nav-item.active i {
+    color: #ff6b6b;
+    transform: scale(1.1);
+}
+
+.player-nav-item span {
+    display: block;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.player-content {
+    flex-grow: 1;
+    padding: 25px;
+    overflow-y: auto;
+}
+
+/* Tab Content Styles */
+.tab-content {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-content h2 {
+    color: #e94560;
+    margin-bottom: 25px;
+    border-bottom: 3px solid rgba(233, 69, 96, 0.3);
+    padding-bottom: 15px;
+    font-size: 1.8em;
+    font-weight: 700;
+    text-align: center;
+    background: linear-gradient(135deg, #e94560, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Chat Navigation */
+.chat-nav {
+    display: flex;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.chat-nav-item {
+    flex: 1;
+    text-align: center;
+    padding: 12px 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.chat-nav-item:hover, .chat-nav-item.active {
+    background: linear-gradient(135deg, #e94560, #ff6b6b);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+.chat-nav-item i {
+    font-size: 1.2em;
+}
+
+/* Chat Sections */
+.chat-section {
+    display: none;
+}
+
+.chat-section.active {
+    display: block;
+}
+
+/* General Chat */
+.chat-messages {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    border-radius: 15px;
+    padding: 20px;
+    min-height: 350px;
+    max-height: 450px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-message-item {
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.2), rgba(255, 107, 107, 0.1));
+    padding: 12px 15px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    max-width: 85%;
+    align-self: flex-start;
+    animation: slideInLeft 0.3s ease;
+    border-left: 4px solid #e94560;
+    backdrop-filter: blur(5px);
+}
+
+.chat-message-item.own-message {
+    align-self: flex-end;
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(233, 69, 96, 0.2));
+    border-left: none;
+    border-right: 4px solid #ff6b6b;
+    animation: slideInRight 0.3s ease;
+}
+
+.chat-message-item strong {
+    color: #ff6b6b;
+    font-weight: 700;
+}
+
+.chat-message-item .chat-time {
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.7);
+    display: block;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.chat-input {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 15px 20px;
+    border-radius: 25px;
+    border: 2px solid rgba(233, 69, 96, 0.3);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    color: white;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.chat-input input:focus {
+    outline: none;
+    border-color: #e94560;
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.4);
+    transform: translateY(-1px);
+}
+
+.chat-input input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.chat-input button {
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #e94560, #ff6b6b);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+.chat-input button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 69, 96, 0.6);
+}
+
+/* Private Chat */
+.private-chat-header {
+    margin-bottom: 20px;
+}
+
+.player-search {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.player-search input {
+    width: 100%;
+    padding: 15px 50px 15px 20px;
+    border-radius: 25px;
+    border: 2px solid rgba(233, 69, 96, 0.3);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    color: white;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.player-search i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #e94560;
+    font-size: 1.2em;
+}
+
+.search-results {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border-radius: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+}
+
+.search-result-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-result-item:hover {
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.2), rgba(255, 107, 107, 0.1));
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.private-chat-container {
+    min-height: 400px;
+}
+
+.no-chat-selected {
+    text-align: center;
+    padding: 60px 20px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.no-chat-selected i {
+    font-size: 4em;
+    margin-bottom: 20px;
+    color: rgba(233, 69, 96, 0.5);
+}
+
+.private-chat-active {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
+.private-chat-header-info {
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.2), rgba(255, 107, 107, 0.1));
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.private-chat-messages {
+    flex-grow: 1;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border-radius: 15px;
+    padding: 15px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+/* Team Tab */
+.tab-content h3 {
+    color: #ff6b6b;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.tab-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tab-content ul li {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    border-left: 4px solid #e94560;
+}
+
+.tab-content ul li:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
+}
+
+/* Posts Tab */
+.post-input {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.post-input textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 15px;
+    border: 2px solid rgba(233, 69, 96, 0.3);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    color: white;
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.post-input textarea:focus {
+    outline: none;
+    border-color: #e94560;
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.4);
+}
+
+.post-input button {
+    align-self: flex-end;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #e94560, #ff6b6b);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+.post-input button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 69, 96, 0.6);
+}
+
+.post-item {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-left: 4px solid #e94560;
+    transition: all 0.3s ease;
+}
+
+.post-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.post-author {
+    font-weight: 700;
+    color: #ff6b6b;
+    font-size: 1.1em;
+}
+
+.post-text {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-size: 1.1em;
+}
+
+.post-actions button {
+    background: none;
+    border: none;
+    color: #e94560;
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: 0.95em;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.post-actions button:hover {
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.2), rgba(255, 107, 107, 0.1));
+    transform: translateY(-1px);
+}
+
+.post-actions button i {
+    margin-left: 8px;
+}
+
+/* Profile Tab */
+.profile-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
+    margin: 30px auto;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #e94560;
+    margin-bottom: 25px;
+    box-shadow: 0 0 25px rgba(233, 69, 96, 0.6);
+    transition: all 0.3s ease;
+}
+
+.profile-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(233, 69, 96, 0.8);
+}
+
+.profile-card h3 {
+    color: #e94560;
+    font-size: 2em;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.profile-card p {
+    font-size: 1.2em;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.profile-card p strong {
+    color: #ff6b6b;
+    font-weight: 700;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .player-nav-item span {
+        display: none;
+    }
+
+    .player-nav-item i {
+        font-size: 2em;
+    }
+
+    .player-nav {
+        padding: 10px 0;
+    }
+
+    .player-header h1 {
+        font-size: 1.4em;
+    }
+
+    .player-header button {
+        padding: 8px 15px;
+        font-size: 0.8em;
+    }
+
+    .tab-content {
+        padding: 20px 15px;
+    }
+
+    .post-input textarea {
+        min-height: 80px;
+    }
+
+    .chat-messages {
+        min-height: 250px;
+        max-height: 350px;
+    }
+
+    .profile-card {
+        padding: 25px 20px;
+        margin: 20px 10px;
+    }
+
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .chat-nav-item span {
+        display: none;
+    }
+
+    .chat-nav-item {
+        padding: 10px;
+    }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #e94560, #ff6b6b);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #ff6b6b, #e94560);
+}
+
