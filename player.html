@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Wolves - لوحة اللاعب</title>
+    <link rel="icon" type="image/png" href="images/icon.png">
+    
+    <!-- Arabic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/player.css">
+</head>
+<body>
+    <div class="player-header">
+        <h1>FC Wolves</h1>
+        <button onclick="FCWolvesUtils.logout()">تسجيل الخروج</button>
+    </div>
+
+    <div class="player-nav">
+        <div class="player-nav-item active" data-tab="team">
+            <i class="fas fa-users"></i>
+            <span>الفريق</span>
+        </div>
+        <div class="player-nav-item" data-tab="posts">
+            <i class="fas fa-newspaper"></i>
+            <span>المنشورات</span>
+        </div>
+        <div class="player-nav-item" data-tab="chat">
+            <i class="fas fa-comments"></i>
+            <span>الدردشة</span>
+        </div>
+        <div class="player-nav-item" data-tab="profile">
+            <i class="fas fa-user"></i>
+            <span>الملف الشخصي</span>
+        </div>
+    </div>
+
+    <div class="player-content">
+        <div id="team-tab" class="tab-content active">
+            <h2>الفريق</h2>
+            <!-- Team content will be loaded here -->
+        </div>
+        <div id="posts-tab" class="tab-content">
+            <h2>المنشورات</h2>
+            <!-- Posts content will be loaded here -->
+        </div>
+        <div id="chat-tab" class="tab-content">
+            <h2>FC WOLVES - الدردشة</h2>
+            
+            <!-- Chat Navigation -->
+            <div class="chat-nav">
+                <div class="chat-nav-item active" data-chat-type="general">
+                    <i class="fas fa-globe"></i>
+                    <span>الدردشة العامة</span>
+                </div>
+                <div class="chat-nav-item" data-chat-type="private">
+                    <i class="fas fa-user-friends"></i>
+                    <span>الدردشة الخاصة</span>
+                </div>
+            </div>
+
+            <!-- General Chat -->
+            <div id="general-chat" class="chat-section active">
+                <div class="chat-messages" id="generalChatMessages"></div>
+                <div class="chat-input">
+                    <input type="text" id="generalChatInput" placeholder="اكتب رسالتك في FC WOLVES...">
+                    <button id="sendGeneralChatBtn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+
+            <!-- Private Chat -->
+            <div id="private-chat" class="chat-section">
+                <div class="private-chat-header">
+                    <div class="player-search">
+                        <input type="text" id="playerSearchInput" placeholder="ابحث عن لاعب للدردشة...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div id="playerSearchResults" class="search-results"></div>
+                </div>
+                
+                <div id="privateChatContainer" class="private-chat-container">
+                    <div class="no-chat-selected">
+                        <i class="fas fa-comments"></i>
+                        <p>اختر لاعباً للبدء في الدردشة الخاصة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="profile-tab" class="tab-content">
+            <h2>الملف الشخصي</h2>
+            <!-- Profile content will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/player.js"></script>
+</body>
+</html>
+

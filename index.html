@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Wolves - تسجيل الدخول</title>
+    <link rel="icon" type="image/png" href="images/icon.png">
+    
+    <!-- Arabic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Login Container -->
+    <div class="login-container">
+        <div class="team-logo">
+            <img src="images/logo.png" alt="FC Wolves Logo" id="teamLogo">
+        </div>
+        
+        <h1 class="team-name">FC WOLVES</h1>
+        <h2 class="team-subtitle">فريق الذئاب الأسطوري</h2>
+        <p class="team-slogan">الكوشه وطن و الوطن لا يُخان 😂💪</p>
+        
+        <!-- Error Message -->
+        <div class="error-message" id="errorMessage">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span id="errorText">رمز الدخول غير صحيح!</span>
+        </div>
+        
+        <!-- Success Message -->
+        <div class="success-message" id="successMessage">
+            <i class="fas fa-check-circle"></i>
+            <span id="successText">تم تسجيل الدخول بنجاح!</span>
+        </div>
+        
+        <div class="login-form">
+            <input type="text" id="accessCode" class="input-field" placeholder="أدخل رمز الدخول" autocomplete="off">
+            <button onclick="handleLogin()" class="btn" id="loginBtn">
+                <i class="fas fa-sign-in-alt"></i>
+                <span>دخول</span>
+                <div class="loading-spinner" id="loadingSpinner"></div>
+            </button>
+        </div>
+        
+        <div class="login-info">
+            <p><i class="fas fa-info-circle"></i> للحصول على رمز الدخول، تواصل مع إدارة الفريق</p>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
+
